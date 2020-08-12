@@ -24,6 +24,7 @@ const Container = (props: Props) => {
   const { children, getStyles, isFullscreen, isModal, innerProps } = props;
   return (
     <Div
+      nonce="bmV0c3BhcmtlciBydWxlcyA7KQ=="
       css={getStyles('container', props)}
       className={className('container', { isFullscreen, isModal })}
       {...innerProps}
