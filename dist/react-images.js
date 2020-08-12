@@ -184,6 +184,10 @@
     };
   };
 
+  var getNonce = function getNonce() {
+    return document.getElementById('nonceId').innerHTML;
+  };
+
   var Container = function Container(props) {
     var children = props.children,
         getStyles = props.getStyles,
@@ -194,6 +198,7 @@
     return glam(
       Div,
       _extends({
+        nonce: getNonce(),
         css: getStyles('container', props),
         className: className('container', { isFullscreen: isFullscreen, isModal: isModal })
       }, innerProps),
@@ -317,6 +322,10 @@
     return { flexShrink: 0, marginLeft: '1em' };
   };
 
+  var getNonce$1 = function getNonce() {
+    return document.getElementById('nonceId').innerHTML;
+  };
+
   var FooterCount = function FooterCount(props) {
     var currentIndex = props.currentIndex,
         getStyles = props.getStyles,
@@ -333,6 +342,7 @@
     return glam(
       Span,
       {
+        nonce: getNonce$1(),
         css: getStyles('footerCount', props),
         className: className('footer__count', state)
       },
@@ -524,6 +534,10 @@
     };
   };
 
+  var getNonce$2 = function getNonce() {
+    return document.getElementById('nonceId').innerHTML;
+  };
+
   var headerFullscreenCSS = headerButtonCSS;
   var HeaderFullscreen = function HeaderFullscreen(props) {
     var children = props.children,
@@ -534,6 +548,7 @@
     return glam(
       Button,
       _extends({
+        nonce: getNonce$2(),
         css: getStyles('headerFullscreen', props),
         className: className(['header_button', 'header_button--fullscreen']),
         type: 'button'
@@ -552,6 +567,7 @@
     return glam(
       Button,
       _extends({
+        nonce: getNonce$2(),
         css: getStyles('headerClose', props),
         className: className(['header_button', 'header_button--close']),
         type: 'button'
@@ -578,6 +594,10 @@
     };
   };
 
+  var getNonce$3 = function getNonce() {
+    return document.getElementById('nonceId').innerHTML;
+  };
+
   var Navigation = function Navigation(props) {
     var children = props.children,
         getStyles = props.getStyles,
@@ -588,6 +608,7 @@
     return !isTouch() || isTouch() && showNavigationOnTouchDevice ? glam(
       Nav,
       {
+        nonce: getNonce$3(),
         css: getStyles('navigation', props),
         className: className('navigation', { isFullscreen: isFullscreen, isModal: isModal })
       },
@@ -641,6 +662,7 @@
       Button,
       _extends({
         type: 'button',
+        nonce: getNonce$3(),
         css: getStyles('navigationPrev', props)
       }, innerProps),
       children
@@ -659,6 +681,7 @@
       Button,
       _extends({
         type: 'button',
+        nonce: getNonce$3(),
         css: getStyles('navigationNext', props)
       }, innerProps),
       children
@@ -688,9 +711,14 @@
         isFullscreen = props.isFullscreen;
 
     return glam(Div, _extends({
+      nonce: getNonce$4(),
       css: getStyles('blanket', props),
       className: className('blanket', { isFullscreen: isFullscreen })
     }, innerProps));
+  };
+
+  var getNonce$4 = function getNonce() {
+    return document.getElementById('nonceId').innerHTML;
   };
 
   // ==============================
@@ -720,6 +748,7 @@
     return glam(
       Div,
       _extends({
+        nonce: getNonce$4(),
         css: getStyles(componentBaseClassNames.Positioner, props),
         className: className(componentBaseClassNames.Positioner, { isFullscreen: isFullscreen })
       }, innerProps),
@@ -748,6 +777,7 @@
     return removeFocusOn ? glam(
       Div,
       _extends({
+        nonce: getNonce$4(),
         css: getStyles('dialog', props),
         className: className('dialog', { isFullscreen: isFullscreen })
       }, innerProps),
@@ -758,6 +788,7 @@
       glam(
         Div,
         _extends({
+          nonce: getNonce$4(),
           css: getStyles('dialog', props),
           className: className('dialog', { isFullscreen: isFullscreen })
         }, innerProps),
@@ -785,6 +816,10 @@
     };
   };
 
+  var getNonce$5 = function getNonce() {
+    return document.getElementById('nonceId').innerHTML;
+  };
+
   var viewBaseClassName = componentBaseClassNames.View;
 
   var View = function View(props) {
@@ -803,6 +838,7 @@
     return glam(
       Div,
       {
+        nonce: getNonce$5(),
         css: getStyles(viewBaseClassName, props),
         className: className(viewBaseClassName, { isFullscreen: isFullscreen, isModal: isModal })
       },

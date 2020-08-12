@@ -128,12 +128,17 @@ export const headerButtonCSS = () => ({
   },
 });
 
+const getNonce = (): string => {
+  return document.getElementById('nonceId').innerHTML;
+};
+
 export const headerFullscreenCSS = headerButtonCSS;
 export const HeaderFullscreen = (props: ButtonProps) => {
   const { children, getStyles, innerProps } = props;
 
   return (
     <Button
+      nonce={getNonce()}
       css={getStyles('headerFullscreen', props)}
       className={className(['header_button', 'header_button--fullscreen'])}
       type="button"
@@ -150,6 +155,7 @@ export const HeaderClose = (props: ButtonProps) => {
 
   return (
     <Button
+      nonce={getNonce()}
       css={getStyles('headerClose', props)}
       className={className(['header_button', 'header_button--close'])}
       type="button"

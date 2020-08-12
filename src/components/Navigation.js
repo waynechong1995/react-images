@@ -31,6 +31,10 @@ export const navigationCSS = ({ interactionIsIdle }: NavState) => ({
   },
 });
 
+const getNonce = (): string => {
+  return document.getElementById('nonceId').innerHTML;
+};
+
 export const Navigation = (props: NavProps) => {
   const {
     children,
@@ -41,6 +45,7 @@ export const Navigation = (props: NavProps) => {
   } = props;
   return !isTouch() || (isTouch() && showNavigationOnTouchDevice) ? (
     <Nav
+      nonce={getNonce()}
       css={getStyles('navigation', props)}
       className={className('navigation', { isFullscreen, isModal })}
     >
@@ -99,6 +104,7 @@ export const NavigationPrev = (props: ItemProps) => {
   return (
     <Button
       type="button"
+      nonce={getNonce()}
       css={getStyles('navigationPrev', props)}
       {...innerProps}
     >
@@ -118,6 +124,7 @@ export const NavigationNext = (props: ItemProps) => {
   return (
     <Button
       type="button"
+      nonce={getNonce()}
       css={getStyles('navigationNext', props)}
       {...innerProps}
     >

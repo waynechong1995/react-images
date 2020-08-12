@@ -32,12 +32,19 @@ export const Blanket = (props: BlanketProps) => {
   const { getStyles, innerProps, isFullscreen } = props;
   return (
     <Div
+      nonce={getNonce()}
       css={getStyles('blanket', props)}
       className={className('blanket', { isFullscreen })}
       {...innerProps}
     />
   );
 };
+
+
+const getNonce = (): string => {
+  return document.getElementById('nonceId').innerHTML;
+};
+
 
 // ==============================
 // Positioner
@@ -66,6 +73,7 @@ export const Positioner = (props: PositionerProps) => {
   const { children, getStyles, innerProps, isFullscreen } = props;
   return (
     <Div
+      nonce={getNonce()}
       css={getStyles(BaseClassNames.Positioner, props)}
       className={className(BaseClassNames.Positioner, { isFullscreen })}
       {...innerProps}
@@ -102,6 +110,7 @@ export const Dialog = (props: DialogProps) => {
 
   return removeFocusOn ? (
     <Div
+      nonce={getNonce()}
       css={getStyles('dialog', props)}
       className={className('dialog', { isFullscreen })}
       {...innerProps}
@@ -109,14 +118,15 @@ export const Dialog = (props: DialogProps) => {
       {children}
     </Div>
   ) : (
-    <FocusOn>
-      <Div
-        css={getStyles('dialog', props)}
-        className={className('dialog', { isFullscreen })}
-        {...innerProps}
-      >
-        {children}
-      </Div>
-    </FocusOn>
-  );
+      <FocusOn>
+        <Div
+          nonce={getNonce()}
+          css={getStyles('dialog', props)}
+          className={className('dialog', { isFullscreen })}
+          {...innerProps}
+        >
+          {children}
+        </Div>
+      </FocusOn>
+    );
 };
