@@ -23,14 +23,19 @@ export default class Portal extends Component {
 				.fade-enter.fade-enter-active { opacity: 1; transition: opacity ${duration}ms; }
 				.fade-leave { opacity: 1; }
 				.fade-leave.fade-leave-active { opacity: 0.01; transition: opacity ${duration}ms; }
-		`;
+    `;
+
+    const getNonce = (): string => {
+      return document.getElementById('nonceId').innerHTML;
+    };
 
     render(
-      <PassContext context={this.context}>
+      <PassContext nonce={getNonce()} context={this.context}>
         <div>
-          <style>{styles}</style>
-          <TransitionGroup {...this.props}>
+          <style nonce={getNonce()}>{styles}</style>
+          <TransitionGroup nonce={getNonce()} {...this.props}>
             <CSSTransition
+              nonce={getNonce()}
               timeout={{ enter: duration, exit: duration }}
               classNames="fade"
             >

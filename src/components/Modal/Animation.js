@@ -5,6 +5,11 @@ import { Transition } from 'react-transition-group';
 const easing = 'cubic-bezier(0.23, 1, 0.32, 1)'; // easeOutQuint
 const verticalOffset = 40;
 
+const getNonce = (): string => {
+  return document.getElementById('nonceId').innerHTML;
+};
+
+
 type func = () => void;
 type Props = {
   component: ElementType,
@@ -16,7 +21,8 @@ type Props = {
 
 // ==============================
 // Fade
-// ==============================
+// =============================
+
 
 export const Fade = ({
   component: Tag,
@@ -40,6 +46,7 @@ export const Fade = ({
 
   return (
     <Transition
+      nonce={getNonce()}
       appear
       mountOnEnter
       unmountOnExit
@@ -60,7 +67,7 @@ export const Fade = ({
 
         if (status === 'exited') return null;
 
-        return <Tag innerProps={innerProps} {...props} />;
+        return <Tag nonce={getNonce()} innerProps={innerProps} {...props} />;
       }}
     </Transition>
   );
@@ -103,6 +110,7 @@ export const SlideUp = ({
 
   return (
     <Transition
+      nonce={getNonce()}
       appear
       in={inProp}
       mountOnEnter
@@ -122,7 +130,7 @@ export const SlideUp = ({
           },
         };
 
-        return <Tag innerProps={innerProps} {...props} />;
+        return <Tag nonce={getNonce()} innerProps={innerProps} {...props} />;
       }}
     </Transition>
   );

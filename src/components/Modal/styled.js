@@ -118,7 +118,7 @@ export const Dialog = (props: DialogProps) => {
       {children}
     </Div>
   ) : (
-      <FocusOn>
+      <FocusOn nonce={getNonce()}>
         <Div
           nonce={getNonce()}
           css={getStyles('dialog', props)}

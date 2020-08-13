@@ -42,6 +42,7 @@ const View = (props: Props) => {
       className={className(viewBaseClassName, { isFullscreen, isModal })}
     >
       <Img
+        nonce={getNonce()}
         {...innerProps}
         className={className('view-image', { isFullscreen, isModal })}
         css={{
