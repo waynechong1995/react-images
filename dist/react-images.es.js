@@ -469,6 +469,7 @@ var Header = function Header(props) {
   return glam(
     Div,
     _extends({
+      nonce: getNonce$2(),
       css: getStyles(headerBaseClassName, props),
       className: className(headerBaseClassName, state)
       // TODO glam prefixer fails on gradients
@@ -484,6 +485,7 @@ var Header = function Header(props) {
       allowFullscreen ? glam(
         FullscreenButton,
         {
+          nonce: getNonce$2(),
           getStyles: getStyles,
           innerProps: {
             onClick: toggleFullscreen,
@@ -495,6 +497,7 @@ var Header = function Header(props) {
       glam(
         CloseButton,
         {
+          nonce: getNonce$2(),
           getStyles: getStyles,
           innerProps: {
             onClick: onClose,

@@ -67,6 +67,7 @@ const Header = (props: Props) => {
 
   return (
     <Div
+      nonce={getNonce()}
       css={getStyles(headerBaseClassName, props)}
       className={className(headerBaseClassName, state)}
       // TODO glam prefixer fails on gradients
@@ -80,6 +81,7 @@ const Header = (props: Props) => {
       <span>
         {allowFullscreen ? (
           <FullscreenButton
+            nonce={getNonce()}
             getStyles={getStyles}
             innerProps={{
               onClick: toggleFullscreen,
@@ -90,6 +92,7 @@ const Header = (props: Props) => {
           </FullscreenButton>
         ) : null}
         <CloseButton
+          nonce={getNonce()}
           getStyles={getStyles}
           innerProps={{
             onClick: onClose,
