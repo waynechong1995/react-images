@@ -278,6 +278,7 @@ var Footer = function Footer(props) {
   return glam(
     Div,
     _extends({
+      nonce: getNonce$1(),
       css: css.container,
       className: cn.container
       // TODO glam prefixer fails on gradients
@@ -309,6 +310,7 @@ var FooterCaption = function FooterCaption(props) {
   return glam(
     Span,
     {
+      nonce: getNonce$1(),
       css: getStyles('footerCaption', props),
       className: className('footer__caption', state)
     },

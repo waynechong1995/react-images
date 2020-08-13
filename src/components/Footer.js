@@ -73,6 +73,7 @@ const Footer = (props: Props) => {
 
   return (
     <Div
+      nonce={getNonce()}
       css={css.container}
       className={cn.container}
       // TODO glam prefixer fails on gradients
@@ -99,6 +100,7 @@ export const FooterCaption = (props: ViewType) => {
 
   return (
     <Span
+      nonce={getNonce()}
       css={getStyles('footerCaption', props)}
       className={className('footer__caption', state)}
     >
