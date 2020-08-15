@@ -21,11 +21,6 @@ export const viewCSS = () => ({
   textAlign: 'center',
 });
 
-const getNonce = (): string => {
-  return document.getElementById('nonceId').innerHTML;
-};
-
-
 const viewBaseClassName = componentBaseClassNames.View;
 
 const View = (props: Props) => {
@@ -37,12 +32,10 @@ const View = (props: Props) => {
 
   return (
     <Div
-      nonce={getNonce()}
       css={getStyles(viewBaseClassName, props)}
       className={className(viewBaseClassName, { isFullscreen, isModal })}
     >
       <Img
-        nonce={getNonce()}
         {...innerProps}
         className={className('view-image', { isFullscreen, isModal })}
         css={{

@@ -7,11 +7,6 @@ import { type ModalType } from './Modal';
 
 const FirstChild = ({ children }) => Children.toArray(children)[0] || null;
 
-
-const getNonce = (): string => {
-  return document.getElementById('nonceId').innerHTML;
-};
-
 export default class ModalGateway extends Component<{
   children: ModalType,
   target: HTMLElement,
@@ -23,7 +18,7 @@ export default class ModalGateway extends Component<{
     if (typeof (window) === 'undefined') return null;
     const { target, children } = this.props;
     return createPortal(
-      <TransitionGroup nonce={getNonce()} component={FirstChild} children={children} />,
+      <TransitionGroup component={FirstChild} children={children} />,
       target,
     );
   }

@@ -73,7 +73,6 @@ const Footer = (props: Props) => {
 
   return (
     <Div
-      nonce={getNonce()}
       css={css.container}
       className={cn.container}
       // TODO glam prefixer fails on gradients
@@ -100,7 +99,6 @@ export const FooterCaption = (props: ViewType) => {
 
   return (
     <Span
-      nonce={getNonce()}
       css={getStyles('footerCaption', props)}
       className={className('footer__caption', state)}
     >
@@ -117,10 +115,6 @@ export const FooterCaption = (props: ViewType) => {
 
 export const footerCountCSS = () => ({ flexShrink: 0, marginLeft: '1em' });
 
-const getNonce = (): string => {
-  return document.getElementById('nonceId').innerHTML;
-};
-
 export const FooterCount = (props: ViewType) => {
   const { currentIndex, getStyles, isFullscreen, isModal, views } = props;
   const state = { isFullscreen, isModal };
@@ -131,7 +125,6 @@ export const FooterCount = (props: ViewType) => {
 
   return (
     <Span
-      nonce={getNonce()}
       css={getStyles('footerCount', props)}
       className={className('footer__count', state)}
     >

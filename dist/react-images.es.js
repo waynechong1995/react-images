@@ -182,10 +182,6 @@ var containerCSS = function containerCSS(_ref) {
   };
 };
 
-var getNonce = function getNonce() {
-  return document.getElementById('nonceId').innerHTML;
-};
-
 var Container = function Container(props) {
   var children = props.children,
       getStyles = props.getStyles,
@@ -196,7 +192,6 @@ var Container = function Container(props) {
   return glam(
     Div,
     _extends({
-      nonce: getNonce(),
       css: getStyles('container', props),
       className: className('container', { isFullscreen: isFullscreen, isModal: isModal })
     }, innerProps),
@@ -278,7 +273,6 @@ var Footer = function Footer(props) {
   return glam(
     Div,
     _extends({
-      nonce: getNonce$1(),
       css: css.container,
       className: cn.container
       // TODO glam prefixer fails on gradients
@@ -310,7 +304,6 @@ var FooterCaption = function FooterCaption(props) {
   return glam(
     Span,
     {
-      nonce: getNonce$1(),
       css: getStyles('footerCaption', props),
       className: className('footer__caption', state)
     },
@@ -320,10 +313,6 @@ var FooterCaption = function FooterCaption(props) {
 
 var footerCountCSS = function footerCountCSS() {
   return { flexShrink: 0, marginLeft: '1em' };
-};
-
-var getNonce$1 = function getNonce() {
-  return document.getElementById('nonceId').innerHTML;
 };
 
 var FooterCount = function FooterCount(props) {
@@ -342,7 +331,6 @@ var FooterCount = function FooterCount(props) {
   return glam(
     Span,
     {
-      nonce: getNonce$1(),
       css: getStyles('footerCount', props),
       className: className('footer__count', state)
     },
@@ -471,7 +459,6 @@ var Header = function Header(props) {
   return glam(
     Div,
     _extends({
-      nonce: getNonce$2(),
       css: getStyles(headerBaseClassName, props),
       className: className(headerBaseClassName, state)
       // TODO glam prefixer fails on gradients
@@ -487,7 +474,6 @@ var Header = function Header(props) {
       allowFullscreen ? glam(
         FullscreenButton,
         {
-          nonce: getNonce$2(),
           getStyles: getStyles,
           innerProps: {
             onClick: toggleFullscreen,
@@ -499,7 +485,6 @@ var Header = function Header(props) {
       glam(
         CloseButton,
         {
-          nonce: getNonce$2(),
           getStyles: getStyles,
           innerProps: {
             onClick: onClose,
@@ -537,10 +522,6 @@ var headerButtonCSS = function headerButtonCSS() {
   };
 };
 
-var getNonce$2 = function getNonce() {
-  return document.getElementById('nonceId').innerHTML;
-};
-
 var headerFullscreenCSS = headerButtonCSS;
 var HeaderFullscreen = function HeaderFullscreen(props) {
   var children = props.children,
@@ -551,7 +532,6 @@ var HeaderFullscreen = function HeaderFullscreen(props) {
   return glam(
     Button,
     _extends({
-      nonce: getNonce$2(),
       css: getStyles('headerFullscreen', props),
       className: className(['header_button', 'header_button--fullscreen']),
       type: 'button'
@@ -570,7 +550,6 @@ var HeaderClose = function HeaderClose(props) {
   return glam(
     Button,
     _extends({
-      nonce: getNonce$2(),
       css: getStyles('headerClose', props),
       className: className(['header_button', 'header_button--close']),
       type: 'button'
@@ -597,10 +576,6 @@ var navigationCSS = function navigationCSS(_ref) {
   };
 };
 
-var getNonce$3 = function getNonce() {
-  return document.getElementById('nonceId').innerHTML;
-};
-
 var Navigation = function Navigation(props) {
   var children = props.children,
       getStyles = props.getStyles,
@@ -611,7 +586,6 @@ var Navigation = function Navigation(props) {
   return !isTouch() || isTouch() && showNavigationOnTouchDevice ? glam(
     Nav,
     {
-      nonce: getNonce$3(),
       css: getStyles('navigation', props),
       className: className('navigation', { isFullscreen: isFullscreen, isModal: isModal })
     },
@@ -665,7 +639,6 @@ var NavigationPrev = function NavigationPrev(props) {
     Button,
     _extends({
       type: 'button',
-      nonce: getNonce$3(),
       css: getStyles('navigationPrev', props)
     }, innerProps),
     children
@@ -684,7 +657,6 @@ var NavigationNext = function NavigationNext(props) {
     Button,
     _extends({
       type: 'button',
-      nonce: getNonce$3(),
       css: getStyles('navigationNext', props)
     }, innerProps),
     children
@@ -714,14 +686,9 @@ var Blanket = function Blanket(props) {
       isFullscreen = props.isFullscreen;
 
   return glam(Div, _extends({
-    nonce: getNonce$4(),
     css: getStyles('blanket', props),
     className: className('blanket', { isFullscreen: isFullscreen })
   }, innerProps));
-};
-
-var getNonce$4 = function getNonce() {
-  return document.getElementById('nonceId').innerHTML;
 };
 
 // ==============================
@@ -751,7 +718,6 @@ var Positioner = function Positioner(props) {
   return glam(
     Div,
     _extends({
-      nonce: getNonce$4(),
       css: getStyles(componentBaseClassNames.Positioner, props),
       className: className(componentBaseClassNames.Positioner, { isFullscreen: isFullscreen })
     }, innerProps),
@@ -780,18 +746,16 @@ var Dialog = function Dialog(props) {
   return removeFocusOn ? glam(
     Div,
     _extends({
-      nonce: getNonce$4(),
       css: getStyles('dialog', props),
       className: className('dialog', { isFullscreen: isFullscreen })
     }, innerProps),
     children
   ) : glam(
     FocusOn,
-    { nonce: getNonce$4() },
+    null,
     glam(
       Div,
       _extends({
-        nonce: getNonce$4(),
         css: getStyles('dialog', props),
         className: className('dialog', { isFullscreen: isFullscreen })
       }, innerProps),
@@ -819,10 +783,6 @@ var viewCSS = function viewCSS() {
   };
 };
 
-var getNonce$5 = function getNonce() {
-  return document.getElementById('nonceId').innerHTML;
-};
-
 var viewBaseClassName = componentBaseClassNames.View;
 
 var View = function View(props) {
@@ -841,13 +801,10 @@ var View = function View(props) {
   return glam(
     Div,
     {
-      nonce: getNonce$5(),
       css: getStyles(viewBaseClassName, props),
       className: className(viewBaseClassName, { isFullscreen: isFullscreen, isModal: isModal })
     },
-    glam(Img, _extends({
-      nonce: getNonce$5()
-    }, innerProps, {
+    glam(Img, _extends({}, innerProps, {
       className: className('view-image', { isFullscreen: isFullscreen, isModal: isModal }),
       css: {
         height: 'auto',
@@ -913,10 +870,6 @@ var defaultModalStyles = {
 var easing = 'cubic-bezier(0.23, 1, 0.32, 1)'; // easeOutQuint
 var verticalOffset = 40;
 
-var getNonce$6 = function getNonce() {
-  return document.getElementById('nonceId').innerHTML;
-};
-
 // ==============================
 // Fade
 // =============================
@@ -945,7 +898,6 @@ var Fade = function Fade(_ref) {
   return React.createElement(
     Transition,
     {
-      nonce: getNonce$6(),
       appear: true,
       mountOnEnter: true,
       unmountOnExit: true,
@@ -962,7 +914,7 @@ var Fade = function Fade(_ref) {
 
       if (status === 'exited') return null;
 
-      return React.createElement(Tag, _extends({ nonce: getNonce$6(), innerProps: innerProps }, props));
+      return React.createElement(Tag, _extends({ innerProps: innerProps }, props));
     }
   );
 };
@@ -1000,7 +952,6 @@ var SlideUp = function SlideUp(_ref2) {
   return React.createElement(
     Transition,
     {
-      nonce: getNonce$6(),
       appear: true,
       'in': inProp,
       mountOnEnter: true,
@@ -1016,7 +967,7 @@ var SlideUp = function SlideUp(_ref2) {
         style: _extends({}, slideStyle, slideTransition[status])
       });
 
-      return React.createElement(Tag, _extends({ nonce: getNonce$6(), innerProps: innerProps }, props));
+      return React.createElement(Tag, _extends({ innerProps: innerProps }, props));
     }
   );
 };
@@ -1031,10 +982,6 @@ var defaultProps = {
 
 /** Classes that when clicked on, close the backdrop */
 var backdropClassNames = new Set([componentBaseClassNames.View, componentBaseClassNames.Header, componentBaseClassNames.Footer, componentBaseClassNames.Track, componentBaseClassNames.Positioner].map(className));
-
-var getNonce$7 = function getNonce() {
-  return document.getElementById('nonceId').innerHTML;
-};
 
 var Modal = function (_Component) {
   inherits(Modal, _Component);
@@ -1111,14 +1058,11 @@ var Modal = function (_Component) {
 
       return glam(
         Fullscreen,
-        {
-          nonce: getNonce$7(), enabled: isFullscreen, onChange: this.handleFullscreenChange },
+        { enabled: isFullscreen, onChange: this.handleFullscreenChange },
         glam(Fade, _extends({}, commonProps, { component: Blanket, 'in': transitionIn })),
         glam(
           SlideUp,
-          _extends({
-            nonce: getNonce$7()
-          }, commonProps, {
+          _extends({}, commonProps, {
             component: Positioner,
             'in': transitionIn,
             innerProps: {
@@ -1129,7 +1073,7 @@ var Modal = function (_Component) {
           }),
           glam(
             Dialog,
-            _extends({ nonce: getNonce$7(), removeFocusOn: this.state.isClosing }, commonProps),
+            _extends({ removeFocusOn: this.state.isClosing }, commonProps),
             carouselComponent
           )
         )
@@ -1360,10 +1304,6 @@ var defaultProps$1 = {
 
 var trackBaseClassName = componentBaseClassNames.Track;
 
-var getNonce$8 = function getNonce() {
-  return document.getElementById('nonceId').innerHTML;
-};
-
 var Carousel = function (_Component) {
   inherits(Carousel, _Component);
 
@@ -1503,16 +1443,13 @@ var Carousel = function (_Component) {
         glam(
           ViewPager,
           {
-            nonce: getNonce$8(),
             tag: 'main',
             style: viewPagerStyles,
             className: className('pager')
           },
           glam(
             Frame,
-            _extends({
-              nonce: getNonce$8()
-            }, frameProps, {
+            _extends({}, frameProps, {
               ref: this.getFrame,
               className: className('frame'),
               style: frameStyles,
@@ -1520,9 +1457,7 @@ var Carousel = function (_Component) {
             }),
             glam(
               Track,
-              _extends({
-                nonce: getNonce$8()
-              }, this.getTrackProps(this.props), {
+              _extends({}, this.getTrackProps(this.props), {
                 style: { display: 'flex', alignItems: 'center' },
                 currentView: currentIndex,
                 className: className(trackBaseClassName),
@@ -1532,8 +1467,8 @@ var Carousel = function (_Component) {
               views && views.map(function (data, index) {
                 return glam(
                   View$1,
-                  { nonce: getNonce$8(), className: className('view-wrapper'), key: index },
-                  glam(View, _extends({ nonce: getNonce$8() }, commonProps, { data: data, index: index }))
+                  { className: className('view-wrapper'), key: index },
+                  glam(View, _extends({}, commonProps, { data: data, index: index }))
                 );
               })
             )
@@ -1686,10 +1621,8 @@ var _initialiseProps$1 = function _initialiseProps() {
 
     return showNav ? glam(
       Navigation,
-      _extends({ nonce: getNonce$8() }, commonProps),
-      showPrev && glam(NavigationPrev, _extends({
-        nonce: getNonce$8()
-      }, commonProps, {
+      commonProps,
+      showPrev && glam(NavigationPrev, _extends({}, commonProps, {
         align: 'left',
         innerProps: {
           'aria-label': getPrevLabel(commonProps),
@@ -1697,9 +1630,7 @@ var _initialiseProps$1 = function _initialiseProps() {
           title: getPrevTitle(commonProps)
         }
       })),
-      showNext && glam(NavigationNext, _extends({
-        nonce: getNonce$8()
-      }, commonProps, {
+      showNext && glam(NavigationNext, _extends({}, commonProps, {
         align: 'right',
         innerProps: {
           'aria-label': getNextLabel(commonProps),
@@ -1758,10 +1689,6 @@ var FirstChild = function FirstChild(_ref) {
   return Children.toArray(children)[0] || null;
 };
 
-var getNonce$9 = function getNonce() {
-  return document.getElementById('nonceId').innerHTML;
-};
-
 var ModalGateway = function (_Component) {
   inherits(ModalGateway, _Component);
 
@@ -1778,7 +1705,7 @@ var ModalGateway = function (_Component) {
           target = _props.target,
           children = _props.children;
 
-      return createPortal(React.createElement(TransitionGroup, { nonce: getNonce$9(), component: FirstChild, children: children }), target);
+      return createPortal(React.createElement(TransitionGroup, { component: FirstChild, children: children }), target);
     }
   }]);
   return ModalGateway;

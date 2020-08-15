@@ -30,12 +30,11 @@ export default class Portal extends Component {
     };
 
     render(
-      <PassContext nonce={getNonce()} context={this.context}>
+      <PassContext context={this.context}>
         <div>
           <style nonce={getNonce()}>{styles}</style>
-          <TransitionGroup nonce={getNonce()} {...this.props}>
+          <TransitionGroup  {...this.props}>
             <CSSTransition
-              nonce={getNonce()}
               timeout={{ enter: duration, exit: duration }}
               classNames="fade"
             >

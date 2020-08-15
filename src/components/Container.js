@@ -20,15 +20,10 @@ export const containerCSS = ({ isFullscreen }: State) => ({
   height: '100%',
 });
 
-const getNonce = (): string => {
-  return document.getElementById('nonceId').innerHTML;
-};
-
 const Container = (props: Props) => {
   const { children, getStyles, isFullscreen, isModal, innerProps } = props;
   return (
     <Div
-      nonce={getNonce()}
       css={getStyles('container', props)}
       className={className('container', { isFullscreen, isModal })}
       {...innerProps}

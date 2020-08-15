@@ -93,10 +93,6 @@ const defaultProps = {
 
 const trackBaseClassName = componentBaseClassNames.Track;
 
-const getNonce = (): string => {
-  return document.getElementById('nonceId').innerHTML;
-};
-
 class Carousel extends Component<CarouselProps, CarouselState> {
   commonProps: any; // TODO
   components: CarouselComponents;
@@ -283,10 +279,9 @@ class Carousel extends Component<CarouselProps, CarouselState> {
     const showNav = (showPrev || showNext) && Navigation;
 
     return showNav ? (
-      <Navigation nonce={getNonce()} {...commonProps}>
+      <Navigation  {...commonProps}>
         {showPrev && (
           <NavigationPrev
-            nonce={getNonce()}
             {...commonProps}
             align="left"
             innerProps={{
@@ -298,7 +293,6 @@ class Carousel extends Component<CarouselProps, CarouselState> {
         )}
         {showNext && (
           <NavigationNext
-            nonce={getNonce()}
             {...commonProps}
             align="right"
             innerProps={{
@@ -385,13 +379,11 @@ class Carousel extends Component<CarouselProps, CarouselState> {
       <Container {...commonProps} innerProps={{ innerRef: this.getContainer }}>
         {this.renderHeader()}
         <ViewPager
-          nonce={getNonce()}
           tag="main"
           style={viewPagerStyles}
           className={className('pager')}
         >
           <Frame
-            nonce={getNonce()}
             {...frameProps}
             ref={this.getFrame}
             className={className('frame')}
@@ -399,7 +391,6 @@ class Carousel extends Component<CarouselProps, CarouselState> {
             tabIndex="-1"
           >
             <Track
-              nonce={getNonce()}
               {...this.getTrackProps(this.props)}
               style={{ display: 'flex', alignItems: 'center' }}
               currentView={currentIndex}
@@ -410,8 +401,8 @@ class Carousel extends Component<CarouselProps, CarouselState> {
               {views &&
                 views.map((data, index) => {
                   return (
-                    <PageView nonce={getNonce()} className={className('view-wrapper')} key={index}>
-                      <View nonce={getNonce()} {...commonProps} data={data} index={index} />
+                    <PageView className={className('view-wrapper')} key={index}>
+                      <View  {...commonProps} data={data} index={index} />
                     </PageView>
                   );
                 })}

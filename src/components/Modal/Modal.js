@@ -67,12 +67,6 @@ const backdropClassNames = new Set(
   ].map(className)
 );
 
-
-const getNonce = (): string => {
-  return document.getElementById('nonceId').innerHTML;
-};
-
-
 class Modal extends Component<Props, State> {
   commonProps: any; // TODO
   components: ModalComponents;
@@ -197,11 +191,9 @@ class Modal extends Component<Props, State> {
     });
 
     return (
-      <Fullscreen
-        nonce={getNonce()} enabled={isFullscreen} onChange={this.handleFullscreenChange}>
+      <Fullscreen enabled={isFullscreen} onChange={this.handleFullscreenChange}>
         <Fade {...commonProps} component={Blanket} in={transitionIn} />
         <SlideUp
-          nonce={getNonce()}
           {...commonProps}
           component={Positioner}
           in={transitionIn}
@@ -211,7 +203,7 @@ class Modal extends Component<Props, State> {
           onEntered={this.modalDidMount}
           onExited={this.modalWillUnmount}
         >
-          <Dialog nonce={getNonce()} removeFocusOn={this.state.isClosing} {...commonProps}>
+          <Dialog removeFocusOn={this.state.isClosing} {...commonProps}>
             {carouselComponent}
           </Dialog>
         </SlideUp>
