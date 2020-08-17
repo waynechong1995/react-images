@@ -113,7 +113,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
 
     this.state = {
       currentIndex: props.currentIndex,
-      interactionIsIdle: isTouch(),
+      interactionIsIdle: !isTouch(),
     };
   }
 
