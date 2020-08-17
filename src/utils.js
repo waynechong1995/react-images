@@ -45,10 +45,9 @@ export function className(name: string | List, state?: State): string {
 // ==============================
 
 export function isTouch() {
-  try {
-    document.createEvent('TouchEvent');
+  if ('ontouchstart' in document.documentElement) {
     return true;
-  } catch (e) {
+  } else {
     return false;
   }
 }
