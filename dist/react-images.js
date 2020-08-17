@@ -1320,7 +1320,7 @@
 
       _this.state = {
         currentIndex: props.currentIndex,
-        interactionIsIdle: isTouch()
+        interactionIsIdle: !isTouch()
       };
       return _this;
     } // TODO
